@@ -9,28 +9,19 @@
 
   </head>
   <body>
+   <div ng-app="project-x">
     <div ng-view>
-
-
     </div>
+  </div>
     <!--Dependencies -->
     <script src='./bower_components/jquery/dist/jquery.min.js'></script>
     <script src='./bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
     <script src="./bower_components/angular/angular.min.js"></script>
     <script src="./bower_components/angular-route/angular-route.min.js"></script>
-  <!--App scripts -->
-  <!-- Main Module -->
-  <script src="./js/main.module.js"></script>
-  <!-- Filters -->
-  <!-- Constants -->
-  <script src="./js/main.constants.js"></script>
-  <!-- Configs -->
-  <script src="./js/configs/main.config.js"></script>
-  <!-- Directives -->
-  <script src='./js/directives/navbar.js'></script>
-  <!-- Controllers -->
-  <script src='./js/controllers/main.controller.js'></script>
-  <!-- Factories -->
-  <script src='./js/factories/main.factory.js'></script>
+    <!--<script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxOcxRbxCBR8A2HGCQ_BPuhPVg1f1g_jU"></script>-->
+    <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false"></script>
+  <script src="./app/main.module.js"></script>
+  <script src="./app/configs/main.config.js"></script>  
+  <script src='./app/controllers/main.controller.js'></script>
   </body>
 </html>
