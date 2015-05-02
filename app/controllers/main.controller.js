@@ -18,11 +18,9 @@ function MainController ($http, $routeParams) {
 
      $http.get('http://codeforamerica.org/api/organizations.geojson').
         success(function(data) {
-          $.each(data.features,function(index, value){locations.push(value.geometry.coordinates)})
-          $.each(locations, function(index, value){
-            heatmapData.push(new google.maps.LatLng(value[1], value[0]))
-          })
-
+          $.each(data.features,function(index, value){
+            heatmapData.push(new google.maps.LatLng(value.geometry.coordinates[1], value.geometry.coordinates[0]));
+          });
         var heatmapGradient = [
           'rgba(0, 255, 255, 0)',
           'rgba(0, 255, 255, 1)',
