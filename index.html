@@ -10,6 +10,7 @@
   </head>
   <body>
    <div ng-app="project-x">
+
     <div ng-view>
     </div>
   </div>
@@ -20,8 +21,19 @@
     <script src="./bower_components/angular-route/angular-route.min.js"></script>
     <!--<script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxOcxRbxCBR8A2HGCQ_BPuhPVg1f1g_jU"></script>-->
     <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false"></script>
+  <!--App scripts -->
+  <!-- Main Module -->
   <script src="./app/main.module.js"></script>
-  <script src="./app/configs/main.config.js"></script>  
+  <!-- Filters -->
+  <!-- Constants -->
+  <script src="./app/main.constants.js"></script>
+  <!-- Configs -->
+  <script src="./app/configs/main.config.js"></script>
+  <!-- Directives -->
+  <script src='./app/directives/navbar.js'></script>
+  <!-- Controllers -->
   <script src='./app/controllers/main.controller.js'></script>
+  <!-- Factories -->
+  <script src='./app/factories/main.factory.js'></script>
   </body>
 </html>

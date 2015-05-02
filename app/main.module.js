@@ -1,1 +1,4 @@
-angular.module('project-x', ['ngRoute']);
+angular.module('project-x', [
+  'ngRoute',
+  'project-x.directives.navbar'
+  ]);
