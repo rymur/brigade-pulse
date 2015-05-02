@@ -1,4 +1,15 @@
 <navbar></navbar>
-<div id="map-canvas" ng-init= "main.initialize()">
-</div>
+    <div id="map-canvas" ng-init= "main.initialize()">
+    </div>
+ <h2>Top 5 Brigades</h2>
+
+ <div class="row top-5">
+   <div class="col-sm-6 col-md-2" ng-repeat="name in main.brigades | limitTo:5">
+     <div class="panel panel-default">
+       <h3>{{name}}</h3>
+       <a href="#">link to brigade page</a>
+     </div>
+   </div>
+ </div>
+
 
