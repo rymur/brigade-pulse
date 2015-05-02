@@ -11,6 +11,12 @@ function ProjectXConfig($routeProvider) {
       controllerAs: 'main',
       private: false
     })
+    .when('/brigades/:brigadeId', {
+      templateUrl: './app/views/profile.html',
+      controller: 'ProfileController',
+      controllerAs: 'profile',
+      private: false
+    })
     .otherwise({
       redirectTo: '/'
     });
