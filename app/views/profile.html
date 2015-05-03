@@ -1,3 +1,25 @@
-<div id="brigade-profile">
-	{{profile.test}}	
-</div>
+<h1>{{brigade.brigadeDetails.current_events[0].organization_name}}, {{ brigade.brigadeDetails.city }}</h1>
+<h2>Events</h2>
+<ul>
+	<li ng-repeat="event in brigade.brigadeDetails.current_events">
+		<h3><a ng-href="{{event.event_url}}">{{event.name}}</a></h3>
+		<p>date: {{event.start_time}}</p>
+		<p>location: {{event.location}}</p>
+		<p>description: {{event.description}}</p>
+	</li>
+</ul>
+<h2>Projects</h2>
+<ul>
+	<li ng-repeat="project in brigade.brigadeDetails.current_projects">
+		<h3><a ng-href="{{project.code_url}}">{{project.name}}</a></h3>
+		<p>main language: {{project.github_details.language}}</p>
+		<p>description: {{project.github_details.description}}</p>
+		<p>open issues: {{project.github_details.open_issues}}</p>
+		<p> 
+			Contributors: 
+			<span ng-repeat="person in project.github_details.contributors"><a ng-href="{{person.html_url}}">{{person.login}}, </span>
+		</p>
+	</li>
+</ul>
+
+

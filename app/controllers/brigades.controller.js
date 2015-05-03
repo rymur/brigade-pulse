@@ -4,12 +4,10 @@ angular
   .controller('profileController', profileController);
 
   function brigadesController($http){
-  	var vm = this;
-    vm.test = "This is the brigades page"	 
+  	var vm = this; 
     vm.getBrigadeName = function(url){
       var nameRegex = /organizations\/(Code-for-\w*)/;
       var brigadeName = nameRegex.exec(url);
-      console.log(brigadeName);
       if(brigadeName) {
         return brigadeName[1];
       }
@@ -32,7 +30,17 @@ angular
   
   function profileController ($http, $routeParams) {
 	  var vm = this;
+    vm.brigadeName = $routeParams.brigadeName;
+    vm.brigadeDetails;
+    getBrigadeData();
 
-	  vm.test = "this is the brigade profile page"
+    function getBrigadeData(){
+      $http.get('http://codeforamerica.org/api/organizations/' + vm.brigadeName)
+      .success(function(data){
+        vm.brigadeDetails = data;
+        console.log(data);
+      })
+    }
+	  
   };
 
