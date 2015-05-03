@@ -25,7 +25,7 @@
 }
 
 .brigade-list .col-md-4:nth-child(3n+1) {
-  clear: left; 
+  clear: left;
 }
 
 .brigade-events ul, .brigade-projects ul{
@@ -44,7 +44,7 @@
 }
 
 .project-contributors .col-md-2:nth-child(7n+1) {
-  clear: left; 
+  clear: left;
 }
 
 .project-issues li {
@@ -53,3 +53,12 @@
 	padding: 5px;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration:none;
+  color:
+}
