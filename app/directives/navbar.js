@@ -8,8 +8,13 @@ angular
         data: '='
       },
       templateUrl: 'app/templates/navbar.html',
-      controller: function($scope) {
-        console.log('navbar showing!');
+      controller: function($scope, $rootScope, $location) {
+	$rootScope.$on('$locationChangeSuccess', function(){
+		var isBrigade = $location.path().indexOf('brigades') !== -1;
+		$('.nav li').removeClass('active')
+		var active = isBrigade ? 2 : 1;		
+		$('.nav li:nth-child('+ active + ')').addClass('active')
+	})
       }
     };
   });
