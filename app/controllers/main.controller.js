@@ -108,7 +108,6 @@ function MainController($http, $routeParams) {
           'rgba(255, 0, 63, 1)',
           'rgba(255, 0, 31, 1)',
           'rgba(255, 0, 0, 1)'
-<<<<<<< HEAD
         ]
 
     heatmap = new google.maps.visualization.HeatmapLayer({
@@ -121,20 +120,3 @@ function MainController($http, $routeParams) {
   });
  }
 }
-
-
-
-=======
-        ];
-        
-          heatmap = new google.maps.visualization.HeatmapLayer({
-            data: heatmapData,
-            gradient: heatmapGradient,
-            radius: 10
-          });
->>>>>>> 01b54bf2276269d6ce21d9335ac2276511dad668
-
-          heatmap.setMap(map);
-        });
-      };
-      }

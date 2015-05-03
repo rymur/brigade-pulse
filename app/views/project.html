@@ -19,7 +19,7 @@
 		<h3>Issues</h3>
 		<ul>
 			<li ng-repeat="issue in project.projectDetails.issues">
-				<p><a ng-href="issue.html_url">Title: {{issue.title}}</a></p>
+				<p><a ng-href="{{issue.html_url}}">{{issue.title}}</a></p>
 				<p>{{issue.body}}</p>
 				<div class="issue-labels">
 					<span ng-repeat="label in issue.labels">
