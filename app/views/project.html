@@ -1,25 +1,25 @@
-<div id="brigade-profile">
+<div class="project-profile">
 	<h1><a ng-href="{{project.projectDetails.code_url}}">{{project.projectDetails.name}}</a></h1>
-	<p>brigade: <a href="{{project.projectDetails.organization.website}}">{{project.projectDetails.organization_name}}</a></p>
-	<p>status: {{project.projectDetails.status}}</p>
-	<p>url: <a ng-href="{{project.link_url}}">{{project.projectDetails.link_url}}</a></p>
-	<p>last updated: {{project.projectDetails.last_updated}}</p>
-	<p>description: {{project.projectDetails.description}}</p>
-	<div class="project-contributors">
+	<p><strong>brigade: </strong><a href="{{project.projectDetails.organization.website}}">{{project.projectDetails.organization_name}}</a></p>
+	<p><strong>status: </strong>{{project.projectDetails.status}}</p>
+	<p><strong>url: </strong><a ng-href="{{project.link_url}}">{{project.projectDetails.link_url}}</a></p>
+	<p><strong>last updated: </strong>{{project.projectDetails.last_updated}}</p>
+	<p><strong>description: </strong>{{project.projectDetails.description}}</p>
+	<div class="project-contributors row">
 		<h3>Contributors</h3>
 		<ul>
-			<li ng-repeat="contrib in project.projectDetails.github_details.contributors">
+			<li class="col-md-2" ng-repeat="contrib in project.projectDetails.github_details.contributors">
 				<img ng-src="{{contrib.avatar_url}}" />
 				<p><a ng-href="{{contrib.html_url}}">{{contrib.login}}</a></p>
-				<p>total contributions: {{contrib.contributions}}</p>
+				<p><strong>total contributions: </strong>{{contrib.contributions}}</p>
 			</li>
 		</ul>
 	</div>
-	<div class="project-issues">
+	<div class="project-issues row">
 		<h3>Issues</h3>
 		<ul>
 			<li ng-repeat="issue in project.projectDetails.issues">
-				<p><a ng-href="{{issue.html_url}}">{{issue.title}}</a></p>
+				<h4><a ng-href="{{issue.html_url}}">{{issue.title}}</a></h4>
 				<p>{{issue.body}}</p>
 				<div class="issue-labels">
 					<span ng-repeat="label in issue.labels">
