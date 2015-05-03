@@ -1,3 +1,32 @@
 <div id="brigade-profile">
-	{{profile.test}}	
+	<h1><a ng-href="{{project.projectDetails.code_url}}">{{project.projectDetails.name}}</a></h1>
+	<p>brigade: <a href="{{project.projectDetails.organization.website}}">{{project.projectDetails.organization_name}}</a></p>
+	<p>status: {{project.projectDetails.status}}</p>
+	<p>url: <a ng-href="{{project.link_url}}">{{project.projectDetails.link_url}}</a></p>
+	<p>last updated: {{project.projectDetails.last_updated}}</p>
+	<p>description: {{project.projectDetails.description}}</p>
+	<div class="project-contributors">
+		<h3>Contributors</h3>
+		<ul>
+			<li ng-repeat="contrib in project.projectDetails.github_details.contributors">
+				<img ng-src="{{contrib.avatar_url}}" />
+				<p><a ng-href="{{contrib.html_url}}">{{contrib.login}}</a></p>
+				<p>total contributions: {{contrib.contributions}}</p>
+			</li>
+		</ul>
+	</div>
+	<div class="project-issues">
+		<h3>Issues</h3>
+		<ul>
+			<li ng-repeat="issue in project.projectDetails.issues">
+				<p><a ng-href="{{issue.html_url}}">{{issue.title}}</a></p>
+				<p>{{issue.body}}</p>
+				<div class="issue-labels">
+					<span ng-repeat="label in issue.labels">
+						{{label.name}}
+					</span>
+				</div>
+			</li>
+		</ul>
+	</div>
 </div>

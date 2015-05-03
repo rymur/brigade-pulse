@@ -23,6 +23,12 @@ function ProjectXConfig($routeProvider) {
       controllerAs: 'projects',
       private: false
     }) 
+    .when('/projects/:projectId', {
+      templateUrl: './app/views/project.html',
+      controller: 'projectController',
+      controllerAs: 'project',
+      private: false
+    })
     .when('/brigades/:brigadeName', {
       templateUrl: './app/views/profile.html',
       controller: 'profileController',
