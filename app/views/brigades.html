@@ -1,13 +1,23 @@
-
-<h1>Code for America Brigades</h1>
-<label>Search for a Brigade by City:</label>
-<input type="search" ng-model="search" placeholder="Search...">
-<p><strong>Number of Brigades: </strong>{{ brigades.brigadesLength }}</p>
+<div class="row">
+  <div class="col-lg-6">
+    <h1>Code for America Brigades</h1>
+		<h4><strong>Number of Brigades: </strong>{{ brigades.brigadesLength }}</h4>
+  </div>
+  <div class="col-lg-6">
+		<br>
+		<br>
+    <label class='form'>Search for a Brigade by City:</label>
+    <input class='form-control' type="search" ng-model="search" placeholder="Search...">
+  </div>
+</div>
 <ul class="cfb-brigades brigade-list">
   <li class="brigade col-md-4" ng-repeat="brigade in brigades.brigades | filter:{city:search}:brigades.leadChar">
-	  <div>
-		<a ng-href="/#/brigades/{{brigades.getBrigadeNameFormat(brigade.name)}}"><h3>{{ brigade.name}}, {{ brigade.city }}</h3></a>
-		<p><strong>Current Projects: </strong>{{ brigade.current_projects.length }}</p>
-	  </div>
-	</li>
+    <div>
+      <a ng-href="/#/brigades/{{brigades.getBrigadeNameFormat(brigade.name)}}">
+        <h3>{{ brigade.name}}, {{ brigade.city }}</h3>
+      </a>
+      <p>
+        <strong>Current Projects: </strong>{{ brigade.current_projects.length }}</p>
+    </div>
+  </li>
 </ul>
