@@ -9,7 +9,8 @@ angular
       },
       templateUrl: 'app/templates/navbar.html',
       controller: function($scope) {
-        console.log('navbar showing!');
+
+
       }
     };
   });
