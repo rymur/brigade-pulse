@@ -5,10 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel='stylesheet' href='./bower_components/bootstrap/dist/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='./style/main.css'>
 
   </head>
   <body>
+    <navbar></navbar> 
    <div ng-app="project-x">
 
     <div ng-view>
@@ -33,6 +35,9 @@
   <script src='./app/directives/navbar.js'></script>
   <!-- Controllers -->
   <script src='./app/controllers/main.controller.js'></script>
+  <script src='./app/controllers/brigades.controller.js'></script>
+  <script src='./app/controllers/contributors.controller.js'></script>
+  <script src='./app/controllers/projects.controller.js'></script>
   <!-- Factories -->
   <script src='./app/factories/main.factory.js'></script>
   </body>
