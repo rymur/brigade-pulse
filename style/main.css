@@ -10,6 +10,11 @@
   padding: 10px 2%;
 }
 
+.btn h4{
+  color: #A1001B;
+}
+
+
 .brigade-list, .brigade-projects ul, .brigade-events ul, .project-profile ul{
 	list-style-type: none;
 }

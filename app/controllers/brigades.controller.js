@@ -24,7 +24,7 @@ angular
     }
 
     vm.leadChar = function (city, subString){
-      
+
       return city.toLowerCase().indexOf(subString.toLowerCase()) == 0
     }
   }
