@@ -5,9 +5,13 @@ angular
 function MainController($http, $routeParams) {
   var vm = this;
 
-  vm.initialize = function() {
+  loadMap();
+
+  function loadMap() {
       var locations = [];
       var heatmapData = [];
+      var weightLookUp;
+      $.getJSON("./brigade_weights.json", function(data){weightLookUp = data});
       vm.brigades = [];
       var map, heatmap;
       var mapOptions = {
@@ -92,7 +96,7 @@ function MainController($http, $routeParams) {
       success(function(data) {
         $.each(data.features, function(index, value) {
           heatmapData.push({
-            location: new google.maps.LatLng(value.geometry.coordinates[1], value.geometry.coordinates[0])
+            location: new google.maps.LatLng(value.geometry.coordinates[1], value.geometry.coordinates[0]), weight: weightLookUp[value.id]
           });
           vm.brigades.push(value.properties.name);
         });
@@ -108,13 +112,12 @@ function MainController($http, $routeParams) {
           'rgba(255, 0, 63, 1)',
           'rgba(255, 0, 31, 1)',
           'rgba(255, 0, 0, 1)'
-<<<<<<< HEAD
         ]
 
     heatmap = new google.maps.visualization.HeatmapLayer({
       data: heatmapData,
       gradient: heatmapGradient,
-      radius: 20
+      radius: 30
     });
 
     heatmap.setMap(map);
@@ -123,18 +126,3 @@ function MainController($http, $routeParams) {
 }
 
 
-
-=======
-        ];
-        
-          heatmap = new google.maps.visualization.HeatmapLayer({
-            data: heatmapData,
-            gradient: heatmapGradient,
-            radius: 10
-          });
->>>>>>> 01b54bf2276269d6ce21d9335ac2276511dad668
-
-          heatmap.setMap(map);
-        });
-      };
-      }
