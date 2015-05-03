@@ -1,36 +1,39 @@
-
-
 <div class="row">
   <div class="col-lg-1 col-md-1 col-sm-1"></div>
 
   <div class="panel-heading col-lg-2 col-md-2 col-sm-2 text-center">
-    <h2>Top 5<br>
-      Brigades</h2>
+    <h2>Top 5
+      <br> Brigades
+    </h2>
 
     <div class="panel-body" ng-repeat="name in main.brigades | limitTo:5">
       <div style="border:solid 1px; box-shadow: 5px 5px 2px #888888;">
-        <h3>{{name}}</h3>
-        <a href="#">link to brigade page</a>
-        <p> </p>
+        <a href="#">
+          <h3>{{name[0]}}</h3>
+        </a>
       </div>
     </div>
   </div>
 
   <div class="col-lg-6 col-md-6 col-sm-6 text-center">
-    <h1>Code For America Brigades <br><br></h1>
+    <h1>Code For America Brigades
+      <br>
+      <br>
+    </h1>
     <div id="map-canvas" style="border:solid; width: 100%; box-shadow: 10px 10px 5px #888888;">
     </div>
   </div>
 
   <div class="panel-heading col-lg-2 col-md-2 col-sm-2 text-center">
-    <h2>Top 5 <br>
-      Contributors</h2>
+    <h2>Top 5
+      <br> Contributors
+    </h2>
 
     <div class="panel-body" ng-repeat="name in main.brigades | limitTo:5">
       <div style="border:solid 1px; box-shadow: 5px 5px 2px #888888;">
-        <h3>{{name}}</h3>
-        <a href="#">link to brigade page</a>
-        <p> </p>
+        <a href="#">
+          <h3>{{name[0]}}</h3>
+        </a>
       </div>
     </div>
   </div>

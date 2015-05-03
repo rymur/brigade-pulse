@@ -5,10 +5,51 @@
   width: 800px;
 }
 
-h2{
-  text-align: center;
+/* Brigades page */
+.page-content {
+  padding: 10px 2%;
 }
 
-/*.top-5{
-  margin-left: 15%;
-}*/
+.brigade-list, .brigade-projects ul, .brigade-events ul, .project-profile ul{
+	list-style-type: none;
+}
+
+.brigade-list {
+	margin-top: 10px;
+}
+
+.brigade-list li div{
+	background: #dddddd;
+	margin: 10px;
+	padding: 10px;
+}
+
+.brigade-list .col-md-4:nth-child(3n+1) {
+  clear: left; 
+}
+
+.brigade-events ul, .brigade-projects ul{
+	background: #C4DCE8;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.project-contributors ul li img {
+	max-width: 100%;
+	border: 3px solid grey;
+}
+
+.project-profile h3{
+	padding-left: 10px;
+}
+
+.project-contributors .col-md-2:nth-child(7n+1) {
+  clear: left; 
+}
+
+.project-issues li {
+	background: #E1EAE3;
+	margin: 10px;
+	padding: 5px;
+}
+
