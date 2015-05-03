@@ -20,13 +20,17 @@ angular
       .success(function(brigades){
         vm.brigades = brigades.objects;
         vm.brigadesLength = brigades.objects.length;
-        console.log(brigades.objects.length);
       })
     }
+
+    vm.leadChar = function (city, subString){
+      
+      return city.toLowerCase().indexOf(subString.toLowerCase()) == 0
+    }
   }
-  
+
   function profileController ($http, $routeParams) {
-	  var vm = this;
+    var vm = this;
     vm.brigadeName = $routeParams.brigadeName;
     vm.brigadeDetails;
     getBrigadeData();
@@ -38,6 +42,5 @@ angular
         console.log(data);
       })
     }
-	  
   };
 
