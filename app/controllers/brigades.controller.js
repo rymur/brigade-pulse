@@ -5,12 +5,9 @@ angular
 
   function brigadesController($http){
   	var vm = this; 
-    vm.getBrigadeName = function(url){
-      var nameRegex = /organizations\/(Code-for-\w*)/;
-      var brigadeName = nameRegex.exec(url);
-      if(brigadeName) {
-        return brigadeName[1];
-      }
+    vm.getBrigadeNameFormat = function(name){
+      formattedName = name.replace(/ /g,"-");
+      return formattedName;
     }
 
     vm.brigades;
