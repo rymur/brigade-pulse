@@ -12,7 +12,6 @@ function MainController($http, $routeParams) {
       var heatmapData = [];
       var weightLookUp;
       $.getJSON("./brigade_weights.json", function(data){weightLookUp = data});
-      //vm.brigades = [];
       var map, heatmap;
       var mapOptions = {
         center: {
@@ -92,17 +91,21 @@ function MainController($http, $routeParams) {
       map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
 
+      var nameWeight = [];
+
       $http.get('http://codeforamerica.org/api/organizations.geojson').
       success(function(data) {
         $.each(data.features, function(index, value) {
+          nameWeight.push([value.properties.name, weightLookUp[value.id], value.properties.city])
           heatmapData.push({
             location: new google.maps.LatLng(value.geometry.coordinates[1], value.geometry.coordinates[0]), weight: weightLookUp[value.id]
           });
-          //vm.brigades.push(value.properties.name);
         });
-        var arrWeights = _.pairs(weightLookUp);
-        arrWeights =  _.sortBy(arrWeights, function(n) {return n[1] } );
-        vm.brigades = arrWeights.reverse();
+
+
+        nameWeight =  _.sortBy(nameWeight, function(n) {return n[1] } );
+        vm.brigades = nameWeight.reverse();
+        console.log(vm.brigades)
 
         var heatmapGradient = [
           'rgba(0, 255, 255, 0)',
