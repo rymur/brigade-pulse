@@ -105,18 +105,17 @@ function MainController($http, $routeParams) {
 
         nameWeight =  _.sortBy(nameWeight, function(n) {return n[1] } );
         vm.brigades = nameWeight.reverse();
-        console.log(vm.brigades)
 
         var heatmapGradient = [
           'rgba(0, 255, 255, 0)',
           'rgba(0, 255, 255, 1)',
           'rgba(0, 63, 255, 1)',
-          'rgba(0, 0, 255, 1)',
-          'rgba(0, 0, 223, 1)',
-          'rgba(0, 0, 127, 1)',
           'rgba(255, 0, 91, 1)',
           'rgba(255, 0, 63, 1)',
           'rgba(255, 0, 31, 1)',
+          'rgba(255, 0, 20, 1)',
+          'rgba(255, 0, 10, 1)',
+          'rgba(255, 0, 5, 1)',
           'rgba(255, 0, 0, 1)'
         ]
 
