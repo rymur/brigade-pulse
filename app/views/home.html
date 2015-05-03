@@ -7,11 +7,12 @@
     </h2>
 
     <div class="panel-body" ng-repeat="name in main.brigades | limitTo:5">
-      <div style="border:solid 1px; box-shadow: 5px 5px 2px #888888;">
-        <a href="#">
-          <h3>{{name[0]}}</h3>
-        </a>
+      <a href="#/brigades/{{name[0]}}">
+        <div style="border:solid 1px; box-shadow: 5px 5px 2px #888888;">
+        <h3>{{name[0]}}</h3>
+        <br>
       </div>
+    </a>
     </div>
   </div>
 
@@ -30,11 +31,12 @@
     </h2>
 
     <div class="panel-body" ng-repeat="name in main.brigades | limitTo:5">
+      <a ng-href="#/brigades/{{name[0]}}">
       <div style="border:solid 1px; box-shadow: 5px 5px 2px #888888;">
-        <a href="#">
-          <h3>{{name[0]}}</h3>
-        </a>
+        <h3>{{name[0]}}</h3>
+        <br>
       </div>
+    </a>
     </div>
   </div>
 
