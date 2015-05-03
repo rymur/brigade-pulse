@@ -1,10 +1,10 @@
-<navbar></navbar>
+
 
 <div class="row">
   <div class="panel-heading col-sm-2 text-center col-sm-push-1">
      <h2>Top 5 Brigades</h2>
 
-    <div style="panel-body border:solid; box-shadow: 10px 10px 5px #888888;"class="" ng-repeat="name in main.brigades | limitTo:5">
+    <div style="border:solid 1px; box-shadow: 5px 5px 2px #888888;" class="panel-body" ng-repeat="name in main.brigades | limitTo:5">
       <div class="">
         <h3>{{name}}</h3>
         <a href="#">link to brigade page</a>
@@ -17,22 +17,17 @@
       </div>
     </div>
 
-    <div class="col-sm-2 text-center col-sm-pull-1">
+    <div class="panel-heading col-sm-2 text-center col-sm-pull-1">
       <h2>Top 5 Contributors</h2>
 
-      <div ng-init="main.getNames()" class="">
-        <div class="" ng-repeat="name in main.brigades | limitTo:5">
-          <div class="panel panel-default">
+        <div style="border:solid 1px; box-shadow: 5px 5px 2px #888888;" class="panel-body" ng-repeat="name in main.brigades | limitTo:5">
+          <div class="">
             <h3>{{name}}</h3>
             <a href="#">link to brigade page</a>
           </div>
         </div>
       </div>
     </div>
-
-
-    </div>
-  </div>
 
   <hr>
 

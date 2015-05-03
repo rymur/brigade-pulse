@@ -113,21 +113,14 @@ function MainController($http, $routeParams) {
           'rgba(191, 0, 31, 1)',
           'rgba(255, 0, 0, 1)'
         ];
+        
+          heatmap = new google.maps.visualization.HeatmapLayer({
+            data: heatmapData,
+            gradient: heatmapGradient,
+            radius: 10
+          });
 
-        heatmap = new google.maps.visualization.HeatmapLayer({
-          data: heatmapData,
-          gradient: heatmapGradient,
-          radius: 10
+          heatmap.setMap(map);
         });
-
-        heatmap.setMap(map);
-      });
-    },
-    vm.getNames = function() {
-      names = [];
-      $http.get('http://codeforamerica.org/api/organizations').
-      success(function(data) {
-         return data;
-       });
-    };
-}
+      };
+      }
