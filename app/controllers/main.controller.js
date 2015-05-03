@@ -12,7 +12,7 @@ function MainController($http, $routeParams) {
       var heatmapData = [];
       var weightLookUp;
       $.getJSON("./brigade_weights.json", function(data){weightLookUp = data});
-      vm.brigades = [];
+      //vm.brigades = [];
       var map, heatmap;
       var mapOptions = {
         center: {
@@ -98,8 +98,11 @@ function MainController($http, $routeParams) {
           heatmapData.push({
             location: new google.maps.LatLng(value.geometry.coordinates[1], value.geometry.coordinates[0]), weight: weightLookUp[value.id]
           });
-          vm.brigades.push(value.properties.name);
+          //vm.brigades.push(value.properties.name);
         });
+        var arrWeights = _.pairs(weightLookUp);
+        arrWeights =  _.sortBy(arrWeights, function(n) {return n[1] } );
+        vm.brigades = arrWeights.reverse();
 
         var heatmapGradient = [
           'rgba(0, 255, 255, 0)',
