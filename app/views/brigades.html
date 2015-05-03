@@ -1,0 +1,8 @@
+<h1>Code for Nashville Bridages</h1>
+<p>Number of Brigades: {{ brigades.brigadesLength }}</p>
+<ul class="cfb-brigades">
+	<li ng-repeat="brigade in brigades.brigades">
+	<a ng-href="/#/brigades/{{brigades.getBrigadeName(brigade.api_url)}}"><h3>{{ brigade.city }}</h3></a>
+		<p>Current Projects: {{ brigade.current_projects.length }}</p>
+	</li>
+</ul>

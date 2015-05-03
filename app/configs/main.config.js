@@ -23,10 +23,10 @@ function ProjectXConfig($routeProvider) {
       controllerAs: 'projects',
       private: false
     }) 
-    .when('/brigades/projects', {
-      templateUrl: './app/views/projects.html',
-      controller: 'projectsController',
-      controllerAs: 'projects',
+    .when('/brigades/:brigadeName', {
+      templateUrl: './app/views/profile.html',
+      controller: 'profileController',
+      controllerAs: 'brigade',
       private: false
     }) 
     .when('/contributors', {
