@@ -1,14 +1,17 @@
-<div class="row">
-  <div class="col-lg-6">
+<div class="row text-center">
+	<div class='col-lg-2 col-md-2 col-sm-2 col-xs-1'></div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
     <h1>Code for America Brigades</h1>
 		<h4><strong>Number of Brigades: </strong>{{ brigades.brigadesLength }}</h4>
   </div>
-  <div class="col-lg-6">
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 		<br>
 		<br>
     <label class='form'>Search for a Brigade by City:</label>
     <input class='form-control' type="search" ng-model="search" placeholder="Search...">
   </div>
+	<div class='col-lg-2 col-md-2 col-sm-2 col-xs-1'></div>
+
 </div>
 <ul class="cfb-brigades brigade-list">
   <li class="brigade col-md-4" ng-repeat="brigade in brigades.brigades | filter:{city:search}:brigades.leadChar">
