@@ -6,10 +6,13 @@ function MainController ($http, $routeParams) {
   var vm = this;
 
   vm.initialize = function() {
-    var locations = [];
-    var heatmapData = [];
+    var heatmapData = [ ];
+    var weightLookUp = {
+       
+    };
     vm.brigades = [];
     var map, heatmap;
+    var number = 1;
     var mapOptions = {
       center: { lat:42.879094, lng:-97.381205},
       zoom: 4,
@@ -21,39 +24,32 @@ function MainController ($http, $routeParams) {
      $http.get('http://codeforamerica.org/api/organizations.geojson').
         success(function(data) {
           $.each(data.features,function(index, value){
-            heatmapData.push({location: new google.maps.LatLng(value.geometry.coordinates[1], value.geometry.coordinates[0])});
+            heatmapData.push({location: new google.maps.LatLng(value.geometry.coordinates[1], value.geometry.coordinates[0]), weight: weightLookUp[value.id]});
             vm.brigades.push(value.properties.name)
           });
 
           var heatmapGradient = [
           'rgba(0, 255, 255, 0)',
           'rgba(0, 255, 255, 1)',
-          'rgba(0, 191, 255, 1)',
-          'rgba(0, 127, 255, 1)',
           'rgba(0, 63, 255, 1)',
           'rgba(0, 0, 255, 1)',
           'rgba(0, 0, 223, 1)',
-          'rgba(0, 0, 191, 1)',
-          'rgba(0, 0, 159, 1)',
           'rgba(0, 0, 127, 1)',
-          'rgba(63, 0, 91, 1)',
-          'rgba(127, 0, 63, 1)',
-          'rgba(191, 0, 31, 1)',
+          'rgba(255, 0, 91, 1)',
+          'rgba(255, 0, 63, 1)',
+          'rgba(255, 0, 31, 1)',
           'rgba(255, 0, 0, 1)'
         ]
 
     heatmap = new google.maps.visualization.HeatmapLayer({
       data: heatmapData,
       gradient: heatmapGradient,
-      radius: 10
+      radius: 20
     });
 
     heatmap.setMap(map);
   });
  }
-
-
-
 }
 
 
