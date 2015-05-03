@@ -1,93 +1,103 @@
 
 
 <div class="row">
-  <div class="panel-heading col-md-2 text-center col-sm-push-1">
-     <h2>Top 5 Brigades</h2>
+  <div class="col-lg-1 col-md-1 col-sm-1"></div>
 
-   <div style="border:solid 1px; box-shadow: 5px 5px 2px #888888;" class="panel-body" ng-repeat="name in main.brigades | limitTo:5">
-      <div class="">
+  <div class="panel-heading col-lg-2 col-md-2 col-sm-2 text-center">
+    <h2>Top 5<br>
+      Brigades</h2>
+
+    <div class="panel-body" ng-repeat="name in main.brigades | limitTo:5">
+      <div style="border:solid 1px; box-shadow: 5px 5px 2px #888888;">
         <h3>{{name}}</h3>
         <a href="#">link to brigade page</a>
+        <p> </p>
       </div>
     </div>
   </div>
 
-    <div class="col-md-8 text-center">
-      <div id="map-canvas" style="border:solid; box-shadow: 10px 10px 5px #888888;">
+  <div class="col-lg-6 col-md-6 col-sm-6 text-center">
+    <h1>Code For America Brigades <br><br></h1>
+    <div id="map-canvas" style="border:solid; width: 100%; box-shadow: 10px 10px 5px #888888;">
+    </div>
+  </div>
+
+  <div class="panel-heading col-lg-2 col-md-2 col-sm-2 text-center">
+    <h2>Top 5 <br>
+      Contributors</h2>
+
+    <div class="panel-body" ng-repeat="name in main.brigades | limitTo:5">
+      <div style="border:solid 1px; box-shadow: 5px 5px 2px #888888;">
+        <h3>{{name}}</h3>
+        <a href="#">link to brigade page</a>
+        <p> </p>
       </div>
     </div>
+  </div>
 
-    <div class="panel-heading col-md-2 text-center col-sm-pull-1">
-      <h2>Top 5 Contributors</h2>
+  <div class='col-lg-1 col-md-1 col-sm-1'></div>
 
-        <div style="border:solid 1px; box-shadow: 5px 5px 2px #888888;" class="panel-body" ng-repeat="name in main.brigades | limitTo:5">
-          <div class="">
-            <h3>{{name}}</h3>
-            <a href="#">link to brigade page</a>
-          </div>
-        </div>
+</div>
+
+<hr>
+
+<div class="footer">
+  <div class="row">
+    <div class="header col-sm-4 text-center">
+      <h3>Contact Us</h3>
+      <br>
+      <div class="contact">
+        <a href="mailto:webmaster@codefornashville.org"><i class="fa fa-envelope-o"></i><span> Email</span></a>
+        <br>
+        <br>
+      </div>
+      <div class="contact">
+        <a href="https://twitter.com/code4nashville"><i class="fa fa-twitter"></i><span> Twitter</span></a>
       </div>
     </div>
-
-  <hr>
-
-  <div class="footer">
-    <div class="row">
-      <div class="header col-sm-4 text-center">
-        <h3>Contact Us</h3>
-        <br>
-        <div class="contact">
-          <a href="mailto:webmaster@codefornashville.org"><i class="fa fa-envelope-o"></i><span> Email</span></a>
-          <br>
-          <br>
-        </div>
-        <div class="contact">
-          <a href="https://twitter.com/code4nashville"><i class="fa fa-twitter"></i><span> Twitter</span></a>
-        </div>
+    <div class="header text-center col-sm-4 columns contact-box">
+      <div class="header">
+        <h3>Join Us</h3>
       </div>
-      <div class="header text-center col-sm-4 columns contact-box">
-        <div class="header">
-          <h3>Join Us</h3>
-        </div>
-        <br>
-        <div class="contact">
-          <a href="https://groups.google.com/forum/#!forum/code-for-nashville"><i class="fa fa-google-plus"></i><span> Google Group</span></a>
-        </div>
-        <br>
-        <div class="contact">
-          <a href="http://www.meetup.com/code-for-nashville/"><i class="fa fa-calendar"></i><span> Meetup</span></a>
-        </div>
-        <br>
-        <div>
-          <a href="/slack/"><i class="fa fa-slack"></i> Slack</a>
-        </div>
+      <br>
+      <div class="contact">
+        <a href="https://groups.google.com/forum/#!forum/code-for-nashville"><i class="fa fa-google-plus"></i><span> Google Group</span></a>
       </div>
-      <div class="header col-sm-4 text-center contact-box">
-        <div class="header">
-          <h3>Follow Us</h3>
-        </div>
-        <br>
-        <div class="contact">
-          <a href="https://www.facebook.com/groups/codefornashville/"><i class="fa fa-facebook"></i><span> Facebook</span></a>
-        </div>
-        <br>
-        <div class="contact">
-          <a href="https://github.com/code-for-nashville"><i class="fa fa-github"></i><span> Github</span></a>
-        </div>
+      <br>
+      <div class="contact">
+        <a href="http://www.meetup.com/code-for-nashville/"><i class="fa fa-calendar"></i><span> Meetup</span></a>
+      </div>
+      <br>
+      <div>
+        <a href="/slack/"><i class="fa fa-slack"></i> Slack</a>
       </div>
     </div>
-    <br>
-    <br>
-    <div class='row'>
-      <div class="text-center">
-        <div class="glyphicon glyphicon-envelope-large"></div>
-        <a href="http://www.codefornashville.org/">
-          <img style="width:150px" src="app/assets/code-for-nash.png">
-        </a>
+    <div class="header col-sm-4 text-center contact-box">
+      <div class="header">
+        <h3>Follow Us</h3>
+      </div>
+      <br>
+      <div class="contact">
+        <a href="https://www.facebook.com/groups/codefornashville/"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+      </div>
+      <br>
+      <div class="contact">
+        <a href="https://github.com/code-for-nashville"><i class="fa fa-github"></i><span> Github</span></a>
       </div>
     </div>
-    <br>
+  </div>
+  <br>
+  <br>
+  <div class='row'>
     <div class="text-center">
-      <p>&copy; Code For Nashville | 2015 </p>
+      <div class="glyphicon glyphicon-envelope-large"></div>
+      <a href="http://www.codefornashville.org/">
+        <img style="width:150px" src="app/assets/code-for-nash.png">
+      </a>
     </div>
   </div>
+  <br>
+  <div class="text-center">
+    <p>&copy; Code For Nashville | 2015 </p>
+  </div>
+</div>
