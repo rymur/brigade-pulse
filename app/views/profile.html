@@ -5,8 +5,8 @@
 		<li ng-repeat="event in brigade.brigadeDetails.current_events">
 			<h3><a ng-href="{{event.event_url}}">{{event.name}}</a></h3>
 			<p><strong>date: </strong>{{event.start_time}}</p>
-			<p><strong>location: </strong>{{event.location}}</p>
-			<p><strong>description: </strong>{{event.description}}</p>
+			<p ng-show="event.location"><strong>location: </strong>{{event.location}}</p>
+			<p ng-show="event.description"><strong>description: </strong>{{event.description}}</p>
 		</li>
 	</ul>
 </div>
@@ -16,12 +16,12 @@
 		<li ng-repeat="project in brigade.brigadeDetails.current_projects">
 			<h3><a ng-href="#/projects/{{project.id}}"> {{project.name}}</a></h3>
 			<p><a ng-href="{{project.code_url}}">source code</a></p>
-			<p><strong>main language: </strong>{{project.github_details.language}}</p>
-			<p><strong>description: </strong>{{project.github_details.description}}</p>
+			<p ng-show="{{project.github_details.language}}"><strong>main language: </strong>{{project.github_details.language}}</p>
+			<p ng-show="project.github_details.description"><strong>description: </strong>{{project.github_details.description}}</p>
 			<p><strong>open issues: </strong>{{project.github_details.open_issues}}</p>
 			<p> 
 				Contributors: 
-				<span ng-repeat="person in project.github_details.contributors"><a ng-href="{{person.html_url}}">{{person.login}}, </span>
+				<span ng-show="project.github_details.contributors" ng-repeat="person in project.github_details.contributors"><a ng-href="{{person.html_url}}">{{person.login}}, </span>
 			</p>
 		</li>
 	</ul>
