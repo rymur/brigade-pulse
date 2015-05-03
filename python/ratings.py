@@ -1,8 +1,8 @@
 import re
 import requests
-from collections import Counter
 from math import sqrt
 from time import sleep
+
 
 def scoreRepo(owner, name):
     """
@@ -26,7 +26,33 @@ def scoreRepo(owner, name):
     score = sum(map(sqrt, commit_counts_per_user))
     return score
 
- 
+
+def scoreEvent(meetup_url, meetup_key):
+    """
+    Returns a score for an event in an organization's history
+    
+    :param meetup_url: url for meetup event
+    :type meetup_url: str
+    :param meetup_key: api key for meetup account
+                       (https://secure.meetup.com/meetup_api/key/)
+    :type meetup_key: str
+    """
+    
+    magic = 5 # tbd
+    
+    # Get event info
+    event_id = re.search("events/(\d+)/", meetup_url).groups(0)
+    api_url = "https://api.meetup.com/2/event/%s" % event_id
+    params = {"key": meetup_key}
+    r = requests.get(api_url, params=params)
+    sleep(0.5)
+    info = r.json()
+    
+    # Calculate score (defaults to zero if error occurred in request
+    score = info.get("yes_rsvp_count", 0) * magic
+    return score
+
+        
 def getRepoCommitInfo(url, csv_writer, github_user, github_password):
     """Writes info on all commits for a Github project to a CSV file
     File headers: (commit_id, user_email, project_name, timestamp)
@@ -53,35 +79,34 @@ def getRepoCommitInfo(url, csv_writer, github_user, github_password):
     # Get data on all commits
     # break when last_sha == next_sha in the response
     last_sha = ""
+    params = {"per_page": 100}
     
     while True:
-        response = requests.get(
-                    ''.join([api_url, "?per_page=100", last_sha]),
-                    auth=(github_user, github_password))
-        sleep(1) # so the rate limit is never exceeded
+        continued = (last_sha != "")
+        if continued:
+            params["sha"] = last_sha
+        response = requests.get(api_url, params=params,
+                                auth=(github_user, github_password))
+        sleep(3600/5000) # so the rate limit is never exceeded
         info = response.json()
-        next_sha = "&sha=%s" % info[-1]['sha']
+        next_sha = info[-1]['sha']
         if last_sha == next_sha:
             break
-        if last_sha != "":
-            info.pop(0) # first commit will be the last commit from
-                        # the previous request
+        if continued:
+            info.pop(0) # first commit will be the same as the last commit
+                        # from the previous request
         
         def makeRow(obj):
             try:
                 commit = obj['commit']
                 row = (obj['sha'], commit['author']['email'], name,
-                    commit['author']['date'])
+                       commit['author']['date'])
                 return row
-            except KeyError as exc:
-                return (exc, obj)
-        
-        def printEntry(entry):
-            if len(entry) == 2:
-                # this could be better
-                entry = ("error", "error", "error", "error")
-            csv_writer.writerow(entry)
+            except KeyError:
+                return ("error", "error", "error", "error")
         
         rows = (makeRow(obj) for obj in info)
-        map(printEntry, rows)
+        map(csv_writer.writerow, rows)
         last_sha = next_sha
+        if len(info) < 100:
+            break
