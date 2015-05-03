@@ -51,9 +51,6 @@ function MainController ($http, $routeParams) {
     heatmap.setMap(map);
   });
  }
-
-
-
 }
 
 
