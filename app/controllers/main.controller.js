@@ -92,15 +92,31 @@ function MainController($http, $routeParams) {
         mapOptions);
 
       var nameWeight = [];
+      var marker;
+      var markers = [];
 
       $http.get('http://codeforamerica.org/api/organizations.geojson').
       success(function(data) {
         $.each(data.features, function(index, value) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(value.geometry.coordinates[1], value.geometry.coordinates[0]),
+            title: value.properties.name,
+            url: "#/brigades/" + value.id,
+            icon: './pin.png'
+            });
+          markers.push(marker)
           nameWeight.push([value.properties.name, weightLookUp[value.id], value.properties.city])
           heatmapData.push({
             location: new google.maps.LatLng(value.geometry.coordinates[1], value.geometry.coordinates[0]), weight: weightLookUp[value.id]
           });
         });
+
+        for (i = 0; i < markers.length; i++){
+          google.maps.event.addListener(markers[i], 'click', function() {
+             window.open(this.url)
+          })
+          markers[i].setMap(map)
+        }
 
 
         nameWeight =  _.sortBy(nameWeight, function(n) {return n[1] } );
@@ -124,7 +140,6 @@ function MainController($http, $routeParams) {
       gradient: heatmapGradient,
       radius: 30
     });
-
     heatmap.setMap(map);
   });
  }
