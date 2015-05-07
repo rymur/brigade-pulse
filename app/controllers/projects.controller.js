@@ -20,7 +20,6 @@ angular
       $http.get('http://codeforamerica.org/api/projects/' + $routeParams.projectId)
       .success(function(project){
         vm.projectDetails = project;
-        console.log(vm.projectDetails)
       })
     }
 
