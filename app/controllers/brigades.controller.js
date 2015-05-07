@@ -5,6 +5,7 @@ angular
 
   function brigadesController($http){
   	var vm = this; 
+
     vm.getBrigadeNameFormat = function(name){
       formattedName = name.replace(/ /g,"-");
       return formattedName;
@@ -39,7 +40,6 @@ angular
       $http.get('http://codeforamerica.org/api/organizations/' + vm.brigadeName)
       .success(function(data){
         vm.brigadeDetails = data;
-        console.log(data);
       })
     }
   };
