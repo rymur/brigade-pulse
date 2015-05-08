@@ -4,15 +4,9 @@ angular
 
 function MainController($http, $routeParams) {
   var vm = this;
-
   loadMap();
 
   function loadMap() {
-      var locations = [];
-      var heatmapData = [];
-      var weightLookUp;
-      $.getJSON("./brigade_weights.json", function(data){weightLookUp = data});
-      var map, heatmap;
       var mapOptions = {
         center: {
           lat: 42.879094,
@@ -88,8 +82,13 @@ function MainController($http, $routeParams) {
           }]
         }]
       };
-      map = new google.maps.Map(document.getElementById('map-canvas'),
+      var map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
+
+      var heatmapData = [];
+      var weightLookUp;
+      $.getJSON("./brigade_weights.json", function(data){weightLookUp = data});
+      var heatmap;
 
       var nameWeight = [];
       var marker;
@@ -119,7 +118,7 @@ function MainController($http, $routeParams) {
         }
 
 
-        nameWeight =  _.sortBy(nameWeight, function(n) {return n[1] } );
+        nameWeight =  _.sortBy(nameWeight, function(n) {return n[1]} );
         vm.brigades = nameWeight.reverse();
 
         var heatmapGradient = [
