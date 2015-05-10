@@ -25,7 +25,6 @@ angular
     }
 
     vm.leadChar = function (city, subString){
-
       return city.toLowerCase().indexOf(subString.toLowerCase()) == 0
     }
   }
@@ -40,6 +39,13 @@ angular
       $http.get('http://codeforamerica.org/api/organizations/' + vm.brigadeName)
       .success(function(data){
         vm.brigadeDetails = data;
+        console.log('called')
+      })
+
+      $http.get('http://codeforamerica.org/api/organizations/' + vm.brigadeName + '/projects?per_page=100')
+      .success(function(data){
+        vm.brigadeProjects = data.objects;
+        vm.brigadeProjectsTotal = data.total;
       })
     }
   };
