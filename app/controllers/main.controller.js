@@ -104,7 +104,7 @@ function MainController($http, $routeParams) {
             icon: './pin.png'
             });
           markers.push(marker)
-          nameWeight.push([value.properties.name, weightLookUp[value.id], value.properties.city])
+          nameWeight.push([value.properties.name, weightLookUp[value.id] || 0, value.properties.city])
           heatmapData.push({
             location: new google.maps.LatLng(value.geometry.coordinates[1], value.geometry.coordinates[0]), weight: weightLookUp[value.id]
           });
@@ -119,6 +119,7 @@ function MainController($http, $routeParams) {
 
 
         nameWeight =  _.sortBy(nameWeight, function(n) {return n[1]} );
+
         vm.brigades = nameWeight.reverse();
 
         var heatmapGradient = [
