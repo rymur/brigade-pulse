@@ -112,11 +112,10 @@ function MainController($http, $routeParams) {
 
         for (i = 0; i < markers.length; i++){
           google.maps.event.addListener(markers[i], 'click', function() {
-             window.open(this.url)
+             window.location.href = this.url
           })
           markers[i].setMap(map)
         }
-
 
         nameWeight =  _.sortBy(nameWeight, function(n) {return n[1]} );
 
