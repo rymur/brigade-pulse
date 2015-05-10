@@ -21,10 +21,10 @@
 			<li ng-repeat="issue in project.projectDetails.issues">
 				<h4><a ng-href="{{issue.html_url}}">{{issue.title}}</a></h4>
 				<p>{{issue.body}}</p>
-				<div class="issue-labels">
-					<span ng-repeat="label in issue.labels">
+				<div class="issue-labels" ng-repeat="label in issue.labels">
+          <span ng-style="{'background-color':'#' + label.color}">
 						{{label.name}}
-					</span>
+					</span> 
 				</div>
 			</li>
 		</ul>
