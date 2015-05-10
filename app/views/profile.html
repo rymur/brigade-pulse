@@ -12,8 +12,9 @@
 </div>
 <div class="brigade-projects">
 <h2>Projects</h2>
+<p><strong>Current projects: </strong>{{brigade.brigadeProjectsTotal}}</p>
 	<ul>
-		<li ng-repeat="project in brigade.brigadeDetails.current_projects">
+		<li ng-repeat="project in brigade.brigadeProjects">
 			<h3><a ng-href="#/projects/{{project.id}}"> {{project.name}}</a></h3>
 			<p><a ng-href="{{project.code_url}}">source code</a></p>
 			<p ng-show="{{project.github_details.language}}"><strong>main language: </strong>{{project.github_details.language}}</p>
