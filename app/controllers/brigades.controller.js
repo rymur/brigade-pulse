@@ -33,13 +33,14 @@ angular
     var vm = this;
     vm.brigadeName = $routeParams.brigadeName;
     vm.brigadeDetails;
+    vm.brigadeProjects;
+
     getBrigadeData();
 
     function getBrigadeData(){
       $http.get('http://codeforamerica.org/api/organizations/' + vm.brigadeName)
       .success(function(data){
         vm.brigadeDetails = data;
-        console.log('called')
       })
 
       $http.get('http://codeforamerica.org/api/organizations/' + vm.brigadeName + '/projects?per_page=100')

@@ -1,10 +1,11 @@
 <h1>{{brigade.brigadeDetails.name}}, {{ brigade.brigadeDetails.city }}</h1>
 <div class="brigade-events">
 	<h2>Events</h2>
-	<ul>
+  <p ng-show="brigade.brigadeDetails.current_events.length == 0">No Upcoming Events</p>
+	<ul ng-show="brigade.brigadeDetails.current_events.length > 0">
 		<li ng-repeat="event in brigade.brigadeDetails.current_events">
 			<h3><a ng-href="{{event.event_url}}">{{event.name}}</a></h3>
-			<p><strong>date: </strong>{{event.start_time}}</p>
+			<p><strong>date: </strong>{{event.start_time | eventDate }}</p>
 			<p ng-show="event.location"><strong>location: </strong>{{event.location}}</p>
 			<p ng-show="event.description"><strong>description: </strong>{{event.description}}</p>
 		</li>
@@ -12,20 +13,21 @@
 </div>
 <div class="brigade-projects">
 <h2>Projects</h2>
-<p><strong>Current projects: </strong>{{brigade.brigadeProjectsTotal}}</p>
-	<ul>
-		<li ng-repeat="project in brigade.brigadeProjects">
-			<h3><a ng-href="#/projects/{{project.id}}"> {{project.name}}</a></h3>
-			<p><a ng-href="{{project.code_url}}">source code</a></p>
-			<p ng-show="{{project.github_details.language}}"><strong>main language: </strong>{{project.github_details.language}}</p>
-			<p ng-show="project.github_details.description"><strong>description: </strong>{{project.github_details.description}}</p>
-			<p><strong>open issues: </strong>{{project.github_details.open_issues}}</p>
-			<p> 
-				Contributors: 
-				<span ng-show="project.github_details.contributors" ng-repeat="person in project.github_details.contributors"><a ng-href="{{person.html_url}}">{{person.login}}, </span>
-			</p>
-		</li>
-	</ul>
+<p ng-show="brigade.brigadeProjectsTotal == 0">No Current Projects</p>
+<div ng-show="brigade.brigadeProjectsTotal > 0">
+    <p><strong>Current projects: </strong>{{brigade.brigadeProjectsTotal}}</p>
+    <ul>
+        <li ng-repeat="project in brigade.brigadeProjects">
+            <h3><a ng-href="#/projects/{{project.id}}"> {{project.name}}</a></h3>
+            <p><a ng-href="{{project.code_url}}">source code</a></p>
+            <p ng-show="{{project.github_details.language}}"><strong>main language: </strong>{{project.github_details.language}}</p>
+            <p ng-show="project.github_details.description"><strong>description: </strong>{{project.github_details.description}}</p>
+            <p><strong>open issues: </strong>{{project.github_details.open_issues}}</p>
+            <p>
+                <strong>Contributors: </strong>
+                <span ng-show="project.github_details.contributors" ng-repeat="person in project.github_details.contributors"><a ng-href="{{person.html_url}}">{{person.login}}, </span>
+            </p>
+        </li>
+    </ul>
 </div>
-
-
+</div>
