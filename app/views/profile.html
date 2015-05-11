@@ -24,12 +24,10 @@
             <p ng-show="project.github_details.description"><strong>description: </strong>{{project.github_details.description}}</p>
             <p><strong>open issues: </strong>{{project.github_details.open_issues}}</p>
             <p>
-                Contributors:
+                <strong>Contributors: </strong>
                 <span ng-show="project.github_details.contributors" ng-repeat="person in project.github_details.contributors"><a ng-href="{{person.html_url}}">{{person.login}}, </span>
             </p>
         </li>
     </ul>
 </div>
 </div>
-
-
