@@ -8,7 +8,7 @@
 	<div class="project-contributors row">
 		<h3>Contributors</h3>
 		<ul>
-			<li class="col-md-2" ng-repeat="contrib in project.projectDetails.github_details.contributors">
+			<li class="col-md-2 col-xs-4" ng-repeat="contrib in project.projectDetails.github_details.contributors">
 				<img ng-src="{{contrib.avatar_url}}" />
 				<p><a ng-href="{{contrib.html_url}}">{{contrib.login}}</a></p>
 				<p><strong>total contributions: </strong>{{contrib.contributions}}</p>
