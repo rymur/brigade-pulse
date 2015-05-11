@@ -22,7 +22,7 @@
 				<h4><a ng-href="{{issue.html_url}}">{{issue.title}}</a></h4>
 				<p>{{issue.body}}</p>
 				<div class="issue-labels" ng-repeat="label in issue.labels">
-          <span ng-style="{'background-color':'#' + label.color}">
+          <span class="label" ng-style="{'background-color':'#' + label.color}">
 						{{label.name}}
 					</span> 
 				</div>
