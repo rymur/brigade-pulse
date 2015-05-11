@@ -5,6 +5,11 @@
   width: 800px;
 }
 
+.title{
+color: #A1001B;
+margin-bottom: 20px;
+}
+
 /* Brigades page */
 .page-content {
   padding: 10px 2%;
