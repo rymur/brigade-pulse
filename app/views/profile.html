@@ -5,7 +5,7 @@
 	<ul ng-show="brigade.brigadeDetails.current_events.length > 0">
 		<li ng-repeat="event in brigade.brigadeDetails.current_events">
 			<h3><a ng-href="{{event.event_url}}">{{event.name}}</a></h3>
-			<p><strong>date: </strong>{{event.start_time}}</p>
+			<p><strong>date: </strong>{{event.start_time | eventDate }}</p>
 			<p ng-show="event.location"><strong>location: </strong>{{event.location}}</p>
 			<p ng-show="event.description"><strong>description: </strong>{{event.description}}</p>
 		</li>
