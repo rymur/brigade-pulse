@@ -1,10 +1,10 @@
 <div class="project-profile">
 	<h1><a ng-href="{{project.projectDetails.code_url}}">{{project.projectDetails.name}}</a></h1>
-	<p><strong>brigade: </strong><a href="{{project.projectDetails.organization.website}}">{{project.projectDetails.organization_name}}</a></p>
-	<p><strong>status: </strong>{{project.projectDetails.status}}</p>
-	<p><strong>url: </strong><a ng-href="{{project.link_url}}">{{project.projectDetails.link_url}}</a></p>
-	<p><strong>last updated: </strong>{{project.projectDetails.last_updated}}</p>
-	<p><strong>description: </strong>{{project.projectDetails.description}}</p>
+	<p ng-show="project.projectDetails.organization_name"><strong>brigade: </strong><a href="{{project.projectDetails.organization.website}}">{{project.projectDetails.organization_name}}</a></p>
+	<p ng-show="project.projectDetails.status"><strong>status: </strong>{{project.projectDetails.status}}</p>
+	<p ng-show="project.projectDetails.link_url"><strong>url: </strong><a ng-href="{{project.link_url}}">{{project.projectDetails.link_url}}</a></p>
+	<p ng-show="project.projectDetails.last_updated"><strong>last updated: </strong>{{project.projectDetails.last_updated}}</p>
+	<p ng-show="project.projectDetails.description"><strong>description: </strong>{{project.projectDetails.description}}</p>
 	<div class="project-contributors row">
 		<h3>Contributors</h3>
 		<ul>
@@ -17,7 +17,8 @@
 	</div>
 	<div class="project-issues row">
 		<h3>Issues</h3>
-		<ul>
+		<p ng-show="project.projectDetails.issues.length == 0">No current issues</p>
+		<ul ng-show="project.projectDetails.issues.length > 0">
 			<li ng-repeat="issue in project.projectDetails.issues">
 				<h4><a ng-href="{{issue.html_url}}">{{issue.title}}</a></h4>
 				<p>{{issue.body}}</p>
