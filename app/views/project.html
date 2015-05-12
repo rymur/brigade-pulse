@@ -3,7 +3,7 @@
 	<p ng-show="project.projectDetails.organization_name"><strong>Brigade: </strong><a href="{{project.projectDetails.organization.website}}">{{project.projectDetails.organization_name}}</a></p>
 	<p ng-show="project.projectDetails.status"><strong>Status: </strong>{{project.projectDetails.status}}</p>
 	<p ng-show="project.projectDetails.link_url"><strong>Url: </strong><a ng-href="{{project.projectDetails.link_url}}">{{project.projectDetails.link_url}}</a></p>
-	<p ng-show="project.projectDetails.last_updated"><strong>Last updated: </strong>{{project.projectDetails.last_updated}}</p>
+	<p ng-show="project.projectDetails.last_updated"><strong>Last updated: </strong>{{project.projectDetails.last_updated | date}}</p>
 	<p ng-show="project.projectDetails.description"><strong>Description: </strong>{{project.projectDetails.description}}</p>
 	<div class="project-contributors row">
 		<h3>Contributors</h3>
