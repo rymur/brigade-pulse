@@ -70,11 +70,14 @@ a {
 
 a:hover {
   text-decoration:none;
-  color:
 }
 
 /* custom homepage breakpoint styles */
-
+@media (max-width: 800px) {
+    .navbar-right {
+        display: none;
+    }
+}
 
 
 
