@@ -19,7 +19,7 @@
     <ul>
         <li ng-repeat="project in brigade.brigadeProjects">
             <h3><a ng-href="#/projects/{{project.id}}"> {{project.name}}</a></h3>
-            <p><a ng-href="{{project.code_url}}">Source code</a></p>
+            <p class="project-source-code"><a ng-href="{{project.code_url}}">Source code</a></p>
             <p ng-show="{{project.github_details.language}}"><strong>Main language: </strong>{{project.github_details.language}}</p>
             <p ng-show="project.github_details.description"><strong>Description: </strong>{{project.github_details.description}}</p>
             <p><strong>Open issues: </strong>{{project.github_details.open_issues}}</p>

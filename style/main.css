@@ -72,6 +72,11 @@ a:hover {
   text-decoration:none;
 }
 
+.project-source-code a{
+    color: #A1001B;
+    text-decoration: underline;
+}
+
 /* custom homepage breakpoint styles */
 @media (max-width: 800px) {
     .navbar-right {
