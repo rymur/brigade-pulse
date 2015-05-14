@@ -9,12 +9,22 @@ angular
       },
       templateUrl: 'app/templates/navbar.html',
       controller: function($scope, $rootScope, $location) {
-	$rootScope.$on('$locationChangeSuccess', function(){
-		var isBrigade = $location.path().indexOf('brigades') !== -1;
-		$('.nav li').removeClass('active')
-		var active = isBrigade ? 2 : 1;		
-		$('.nav li:nth-child('+ active + ')').addClass('active')
-	})
+  $rootScope.$on('$locationChangeSuccess', function(){
+    var isBrigade = $location.path().indexOf('brigades') !== -1;
+    var isProject = $location.path().indexOf('projects') !== -1;
+    var isHome = $location.path() == "/"
+   if (isBrigade) {
+    $('.nav li').removeClass('active')
+    $('.nav li:nth-child(2)').addClass('active')
+  } else if (isProject) {
+    $('.nav li').removeClass('active')
+    $('.nav li:nth-child(2)').addClass('active')
+  } else {
+    $('.nav li').removeClass('active')
+    $('.nav li:nth-child(1)').addClass('active')
+  }
+
+  })
       }
     };
   });
