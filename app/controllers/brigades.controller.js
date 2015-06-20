@@ -13,6 +13,7 @@ angular
 
     vm.brigades;
     vm.brigadesLength;
+    vm.search = "";
 
     getBrigadeData();
 
