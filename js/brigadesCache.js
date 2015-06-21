@@ -16,10 +16,10 @@
   }())
 
   function _getBrigadeProjects(brigades){
-    brigades.forEach(function(brigade, index){
+    brigades.forEach(function(brigade){
       //console.log(brigade)
       $.get(brigade.projects_url, function(projects){
-        brigade['total_projects'] = projects.total.toString();
+        brigade["total_projects"] = projects.total.toString();
       })
     })
 
