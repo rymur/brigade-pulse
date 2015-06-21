@@ -20,7 +20,6 @@ angular
     function getBrigadeData(){
       $http.get('https://cfn-brigadepulse.firebaseio.com/brigadeInfo.json')
       .success(function(brigades){
-        console.log(brigades)
         vm.brigades = brigades;
       })
     }
