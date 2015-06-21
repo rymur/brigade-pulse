@@ -21,6 +21,7 @@ angular
       $http.get('https://cfn-brigadepulse.firebaseio.com/brigadeInfo.json')
       .success(function(brigades){
         vm.brigades = brigades;
+        vm.brigadeTotal = brigades.length;
       })
     }
 
