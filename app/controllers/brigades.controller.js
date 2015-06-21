@@ -4,7 +4,7 @@ angular
   .controller('profileController', profileController);
 
   function brigadesController($http){
-  	var vm = this; 
+  	var vm = this;
 
     vm.getBrigadeNameFormat = function(name){
       formattedName = name.replace(/ /g,"-");
@@ -18,10 +18,10 @@ angular
     getBrigadeData();
 
     function getBrigadeData(){
-      $http.get('http://codeforamerica.org/api/organizations?per_page=1000')
+      $http.get('https://cfn-brigadepulse.firebaseio.com/brigadeInfo.json')
       .success(function(brigades){
-        vm.brigades = brigades.objects;
-        vm.brigadesLength = brigades.objects.length;
+        console.log(brigades)
+        vm.brigades = brigades;
       })
     }
 
@@ -51,4 +51,3 @@ angular
       })
     }
   };
-

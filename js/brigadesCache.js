@@ -8,7 +8,7 @@
       url: cfa,
       success: function(data){
         data.objects.forEach(function(brigade){
-          brigadeData.push({'name': brigade.name, 'projects_url': brigade.all_projects, 'total_projects': 'n/a'})
+          brigadeData.push({'name': brigade.name, 'city': brigade.city, 'projects_url': brigade.all_projects, 'total_projects': 'n/a'})
         })
       _getBrigadeProjects(brigadeData);
       }
