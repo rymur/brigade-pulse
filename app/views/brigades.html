@@ -2,7 +2,7 @@
 	<div class='col-lg-2 col-md-2 col-sm-2 col-xs-1'></div>
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
     <h1>Code for America Brigades</h1>
-		<h4><strong>Number of Brigades: </strong>{{ brigades.brigadesLength }}</h4>
+		<h4><strong>Number of Brigades: </strong>{{ brigades.brigadeTotal }}</h4>
   </div>
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 		<br>
@@ -19,7 +19,7 @@
         <h3>{{ brigade.name}}, {{ brigade.city }}</h3>
       </a>
       <p>
-        <strong>Current Projects: </strong>{{ brigade.current_projects.length }}</p>
+        <strong>Current Projects: </strong>{{ brigade.total_projects }}</p>
     </div>
   </li>
 </ul>
