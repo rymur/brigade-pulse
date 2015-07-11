@@ -11,3 +11,8 @@ bower_components/
 
 # Generic Virtualenv directory
 venv/
+
+# Build artifacts
+dist/
+build/
+*.egg-info
