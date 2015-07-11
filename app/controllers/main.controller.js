@@ -108,6 +108,7 @@ function MainController($http, $routeParams) {
           heatmapData.push({
             location: new google.maps.LatLng(value.geometry.coordinates[1], value.geometry.coordinates[0]), weight: weightLookUp[value.id]
           });
+          
         });
 
         for (i = 0; i < markers.length; i++){
@@ -120,6 +121,7 @@ function MainController($http, $routeParams) {
         nameWeight =  _.sortBy(nameWeight, function(n) {return n[1]} );
 
         vm.brigades = nameWeight.reverse();
+        
 
         var heatmapGradient = [
           'rgba(0, 255, 255, 0)',
