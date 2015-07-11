@@ -1,1 +1,10 @@
 *.swp
+
+# Web dependencies installed by Bower
+bower_components/
+
+# Compiled Python Files
+*.pyc
+
+# Vagrant directory
+.vagrant/
