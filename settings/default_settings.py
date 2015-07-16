@@ -1,43 +1,30 @@
-"""
-Django settings for bridgade_pulse project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.7/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.7/ref/settings/
-"""
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# In production, we'll override this with a key stored in local.py
 SECRET_KEY = '6s=km)xm-kt-xo#l-a+ei4am016_=u=$@90jsxebkve8l49la0'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 TEMPLATE_DEBUG = True
 
+# In production, we'll override this with '.brigadepulse.com'
 ALLOWED_HOSTS = []
 
-
-# Application definition
-
-INSTALLED_APPS = (
+# Application definitions.  We'll keep separate 3rd party and our apps.
+THIRD_PARTY_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+)
+
+OUR_APPS = (
     'api',
 )
+
+INSTALLED_APPS = THIRD_PARTY_APPS + OUR_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -49,13 +36,11 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'bridgade_pulse.urls'
+ROOT_URLCONF = 'urls'
+WSGI_APPLICATION = 'settings.wsgi_settings.application'
 
-WSGI_APPLICATION = 'bridgade_pulse.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+# Currently, for local development, we'll use SQLite.  On production this will likely be MySQL.
 
 DATABASES = {
     'default': {
@@ -64,21 +49,12 @@ DATABASES = {
     }
 }
 
-# Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+# We'll force all timestamps to be saved and served in UTC, regardless of client/host timezone
 TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
-
+# In production... I don't know what we'll do yet :-)
 STATIC_URL = '/static/'
