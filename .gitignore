@@ -16,3 +16,9 @@ venv/
 dist/
 build/
 *.egg-info
+
+# IDE files
+.idea/
+
+# SQLite3 db file
+db.sqlite3
