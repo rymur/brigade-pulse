@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from api.models import Brigade, Person
+
+admin.site.register(Brigade)
+admin.site.register(Person)
