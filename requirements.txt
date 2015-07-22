@@ -2,4 +2,18 @@
 # `pip install -r requirements.txt` in a terminal window.  It will read the
 # dependencies from this file, and install them and their dependencies!
 
+# Django is the base web framework used for ORM and serving views
 Django==1.8.3
+
+# dj-database-url parses the local environment variable DATABASE_URL
+# serverside and builds the appropriate config object for it
+dj-database-url==0.3.0
+
+# mysqlclient is the preferred connector for using MySQL with Django
+mysqlclient==1.3.6
+
+# gunicorn is a WSGI server used in production
+gunicorn==19.3.0
+
+# whitenoise is a framework for serving static files in production
+whitenoise==2.0.2

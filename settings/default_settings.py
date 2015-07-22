@@ -55,6 +55,10 @@ TIME_ZONE = 'UTC'
 USE_TZ = False
 
 
-# Static files (CSS, JavaScript, Images)
-# In production... I don't know what we'll do yet :-)
+# DjangoWhiteNoise requires STATIC_URL and STATIC_ROOT to be set even though we don't really use them.
+# TEMPLATE_DIRS allows us to serve index.html at the root + WHITENOISE_ROOT allows us to serve files
+# from the public directory directly.  Probably not *best* practice, but it works for us.
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'public'),)
+WHITENOISE_ROOT = os.path.join(BASE_DIR, 'public')
