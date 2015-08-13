@@ -40,12 +40,16 @@ ROOT_URLCONF = 'urls'
 WSGI_APPLICATION = 'settings.wsgi_settings.application'
 
 
-# Currently, for local development, we'll use SQLite.  On production this will likely be MySQL.
+# We'll use Postgres for both local and production!
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'brigadepulse',
+        'USER': 'brigadepulse',
+        'PASSWORD': 'brigadepulse',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
