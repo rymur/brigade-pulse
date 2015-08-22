@@ -22,3 +22,6 @@ build/
 
 # SQLite3 db file
 db.sqlite3
+
+# local settings!
+settings/local.py

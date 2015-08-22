@@ -1,7 +1,8 @@
 import dateutil.parser
 import requests
-from api import Project
-from api.models.cfa_models.brigade import Brigade
+
+from api.models import Brigade, Project
+from api.snapshots.cfa_snapshots import BrigadeSnapshot, ProjectSnapshot
 
 CFA_ORGANIZATIONS_API_ENDPOINT = 'http://codeforamerica.org/api/organizations'
 
@@ -35,6 +36,7 @@ def scrape_brigades_and_projects():
             brigade_object.events_url = brigade.get('events_url')
             brigade_object.rss = brigade.get('rss')
             brigade_object.save()
+            BrigadeSnapshot().create_snapshot(brigade_object)
 
             for project in brigade.get('current_projects', list()):
                 project_object = Project.objects.filter(id=project.get('id')).first()
@@ -50,3 +52,4 @@ def scrape_brigades_and_projects():
                 project_object.last_updated = dateutil.parser.parse(project.get('last_updated'))
                 project_object.brigade_id = brigade_object.id
                 project_object.save()
+                ProjectSnapshot().create_snapshot(project_object)

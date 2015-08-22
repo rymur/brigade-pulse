@@ -18,6 +18,7 @@ THIRD_PARTY_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
 )
 
 OUR_APPS = (
@@ -66,3 +67,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'public'),)
 WHITENOISE_ROOT = os.path.join(BASE_DIR, 'public')
+
+GITHUB_TOKEN = 'OVERRIDE_IN_YOUR_LOCAL_PY'

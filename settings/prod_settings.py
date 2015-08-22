@@ -11,6 +11,7 @@ ALLOWED_HOSTS = ['*']
 
 # Actual secret key should be pulled from Heroku
 SECRET_KEY = os.getenv('SECRET_KEY', None)
+GITHUB_TOKEN = os.getenv('GITHUB_TOKEN', None)
 
 # Why not GZIP and client-cache files?
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
