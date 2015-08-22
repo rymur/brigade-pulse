@@ -4,4 +4,5 @@ from cfa_models.project import Project
 
 from api.models.github.github_repository import GitHubRepository
 
-from meetup_event import MeetupEvent
+from api.models.meetup.meetup_event import MeetupEvent
+from api.models.meetup.meetup_group import MeetupGroup
