@@ -23,3 +23,9 @@ requests==2.7.0
 
 # Dates are a pain... until now!
 python-dateutil==2.4.2
+
+# django-extensions is an awesome set of tools to help development, especially shell_plus
+django-extensions==1.5.5
+
+# south is a database library used for the dynamic timeseries creation
+south==1.0.2

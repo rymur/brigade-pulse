@@ -14,3 +14,7 @@ class Brigade(TrackableModel):
 
     events_url = models.URLField(max_length=1000)
     rss = models.URLField(max_length=1000)
+
+    class Meta(object):
+        db_table = 'brigade'
+        app_label = 'api'

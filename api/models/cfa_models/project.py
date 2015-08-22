@@ -1,6 +1,7 @@
 from django.db import models
-from api import Brigade
-from api.models.github_repository import GitHubRepository
+
+from api.models.cfa_models.brigade import Brigade
+from api.models.github.github_repository import GitHubRepository
 from api.models.utils.trackable_model import TrackableModel
 
 
@@ -21,3 +22,7 @@ class Project(TrackableModel):
     github_repository = models.ForeignKey(GitHubRepository, null=True, blank=True)
 
     last_updated = models.DateTimeField(null=True, blank=True)
+
+    class Meta(object):
+        db_table = 'project'
+        app_label = 'api'

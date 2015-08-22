@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('rss', models.URLField(max_length=1000)),
             ],
             options={
-                'abstract': False,
+                'db_table': 'brigade',
             },
         ),
         migrations.CreateModel(
@@ -39,16 +39,40 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=255)),
                 ('description', models.TextField(null=True, blank=True)),
                 ('language', models.CharField(max_length=255, null=True, blank=True)),
-                ('contributors', models.BooleanField()),
-                ('owner', models.BooleanField()),
                 ('homepage', models.URLField(max_length=1000, null=True, blank=True)),
                 ('stargazers_count', models.IntegerField()),
                 ('watchers_count', models.IntegerField()),
                 ('forks_count', models.IntegerField()),
+                ('open_issues', models.IntegerField()),
                 ('created_at', models.DateTimeField()),
             ],
             options={
-                'abstract': False,
+                'db_table': 'github_repository',
+            },
+        ),
+        migrations.CreateModel(
+            name='GitHubRepositoryContributor',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created_on', models.DateTimeField(auto_now_add=True)),
+                ('updated_on', models.DateTimeField(auto_now=True)),
+                ('contributions', models.PositiveIntegerField()),
+            ],
+            options={
+                'db_table': 'github_repo_contributors',
+            },
+        ),
+        migrations.CreateModel(
+            name='GitHubUser',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created_on', models.DateTimeField(auto_now_add=True)),
+                ('updated_on', models.DateTimeField(auto_now=True)),
+                ('name', models.CharField(max_length=255)),
+                ('avatar_url', models.CharField(max_length=255, null=True, blank=True)),
+            ],
+            options={
+                'db_table': 'github_user',
             },
         ),
         migrations.CreateModel(
@@ -67,7 +91,7 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField()),
             ],
             options={
-                'abstract': False,
+                'db_table': 'meetup_event',
             },
         ),
         migrations.CreateModel(
@@ -88,7 +112,27 @@ class Migration(migrations.Migration):
                 ('github_repository', models.ForeignKey(blank=True, to='api.GitHubRepository', null=True)),
             ],
             options={
-                'abstract': False,
+                'db_table': 'project',
             },
+        ),
+        migrations.AddField(
+            model_name='githubrepositorycontributor',
+            name='contributor',
+            field=models.ForeignKey(to='api.GitHubUser'),
+        ),
+        migrations.AddField(
+            model_name='githubrepositorycontributor',
+            name='repository',
+            field=models.ForeignKey(to='api.GitHubRepository'),
+        ),
+        migrations.AddField(
+            model_name='githubrepository',
+            name='contributors',
+            field=models.ManyToManyField(to='api.GitHubUser', through='api.GitHubRepositoryContributor'),
+        ),
+        migrations.AddField(
+            model_name='githubrepository',
+            name='owner',
+            field=models.ForeignKey(related_name='my_repos', to='api.GitHubUser'),
         ),
     ]

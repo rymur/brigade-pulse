@@ -18,3 +18,7 @@ class MeetupEvent(TrackableModel):
     end_time = models.DateTimeField(null=True, blank=True)
 
     created_at = models.DateTimeField()
+
+    class Meta(object):
+        db_table = 'meetup_event'
+        app_label = 'api'
