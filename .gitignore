@@ -23,5 +23,8 @@ build/
 # SQLite3 db file
 db.sqlite3
 
+# Celerybeat database if you run celery beat locally
+celerybeat-schedule.db
+
 # local settings!
 settings/local.py
