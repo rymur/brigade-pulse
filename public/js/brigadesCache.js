@@ -20,7 +20,7 @@
     brigades.forEach(function(brigade){
       //console.log(brigade)
       var promise = $.get(brigade.projects_url, function(projects){
-        brigade["total_projects"] = projects.total.toString();
+        brigade["total_projects"] = projects.total;
       })
       brigadeDetailsPromises.push(promise);
     })
