@@ -16,16 +16,21 @@
   }())
 
   function _getBrigadeProjects(brigades){
+    brigadeDetailsPromises = []
     brigades.forEach(function(brigade){
       //console.log(brigade)
-      $.get(brigade.projects_url, function(projects){
-        brigade["total_projects"] = projects.total.toString();
+      var promise = $.get(brigade.projects_url, function(projects){
+        brigade["total_projects"] = projects.total;
       })
+      brigadeDetailsPromises.push(promise);
     })
 
-    setTimeout(function(){
+    // Wait until all the $.get requests have resolved before
+    // saving the data back to firebase.
+    $.when.apply(this, brigadeDetailsPromises).done(function(){
+      console.log("Caching Brigade API data to https://cfn-brigadepulse.firebaseio.com/brigadeInfo.json");
       _cacheBrigadesToFirebase(brigadeData);
-    }, 10000)
+    });
   }
 
   function _cacheBrigadesToFirebase(){
