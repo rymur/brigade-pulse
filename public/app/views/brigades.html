@@ -9,11 +9,11 @@
 		<br>
     <label class='form'>Search for a Brigade by City:</label>
     <input class='form-control' type="text" ng-model="search" bs-options="brigades.brigade.name for brigade in brigades.brigades" placeholder="Search..." bs-typeahead>
-    <label>Filter Brigades By:
+    <label>Order Brigades By:
     <select ng-model="brigades.orderList">
       <option value="name">Name</option>
       <option value="-total_projects">Total Projects</option>
-      <option value="">Ranking</option>
+      <option value="">None</option>
     </select>
     </label>
   </div>
