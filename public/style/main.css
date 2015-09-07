@@ -20,8 +20,25 @@ margin-bottom: 20px;
 }
 
 
-.brigade-list, .brigade-projects ul, .brigade-events ul, .project-profile ul{
+.brigade-list, #brigade-projects ul, #brigade-events ul, .project-profile ul{
 	list-style-type: none;
+}
+
+#brigade-projects li, #brigade-events li {
+  word-wrap: break-word;
+  margin: 5px;
+  border-bottom: 1px solid black;
+}
+
+#brigade-overview dt, #brigade-projects dt {
+  /* Make Bootstrap's dl-horizontal align titles to the left */
+  text-align: left;
+  display: inline;
+}
+
+#brigade-overview {
+  /* Make width expand with content */
+  display: inline-block;
 }
 
 .brigade-list {
@@ -38,7 +55,7 @@ margin-bottom: 20px;
   clear: left;
 }
 
-.brigade-events ul, .brigade-projects ul{
+#brigade-events ul, #brigade-projects ul{
 	background: #C4DCE8;
 	padding: 10px;
 	margin-bottom: 10px;
@@ -77,15 +94,19 @@ a:hover {
     text-decoration: underline;
 }
 
+#brigade-overview {
+  padding: 5px 10px;
+  margin: 15px auto;
+  border: 1px solid black;
+}
+
+#brigade-graphs div{
+  height: 300px;
+}
+
 /* custom homepage breakpoint styles */
 @media (max-width: 800px) {
     .navbar-right {
         display: none;
     }
 }
-
-
-
-
-
-
