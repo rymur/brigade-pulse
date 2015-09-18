@@ -17,7 +17,7 @@
     <h1 class="title">Code For America Brigades
     </h1>
     <h4>Use the map to track which Code for America brigades are the most active! <br>Click on a brigade to view their current projects, events, and contributers.</h4><br>
-    <div id="map-canvas" style="border:solid; width: 100%; box-shadow: 10px 10px 5px #888888;">
+    <div id="map-canvas" style="border:solid; width: 100%;">
     </div>
   </div>
 
@@ -28,7 +28,7 @@
 
     <div class="panel-body" ng-repeat="name in main.brigades | limitTo:5">
       <a ng-href="#/brigades/{{name[0]}}">
-        <div type="button" class="btn btn-default btn-md btn-block" style="border:solid 1px; box-shadow: 5px 5px 2px #888888;">
+        <div type="button" class="btn btn-default btn-md btn-block" style="border:solid 1px;">
           <h3 style="overflow: hidden; white-space: nowrap;text-overflow: ellipsis;">{{name[0]}}</h3>
           <h4>{{name[2]}}</h4>
         </div>
